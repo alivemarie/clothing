@@ -11,6 +11,7 @@ const config = {
     appId: "1:781579233862:web:e46edd1a26744871b0f847"
 };
 
+// saves user's account data to Firestore database if it doesn't exist there (i.e. when Google Auth used)
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return
 

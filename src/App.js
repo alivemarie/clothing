@@ -27,9 +27,9 @@ class App extends React.Component {
                     this.setState({
                         currentUser: {
                             id: snapShot.id,
-                            ...snapShot.data()
+                            ...snapShot.data() // returns fields of this user, such as email and etc
                         }
-                    }, () => console.log(this.state))
+                    })
                 })
             }
             this.setState({currentUser: userAuth})
