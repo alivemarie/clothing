@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import {auth} from "../../firebase/firebase.utils";
-import { ReactComponent as Logo } from '../../assets/083 crown.svg'
+import {ReactComponent as Logo} from '../../assets/crown.svg'
+import CartIcon from "../cart-icon/cart-icon";
 import './header.scss'
 
 const Header = ({currentUser}) => (
@@ -18,9 +20,13 @@ const Header = ({currentUser}) => (
                 ) : (
                     <Link className='option' to='/signin'> SIGN IN </Link>)
             }
-
+            <CartIcon/>
         </div>
     </div>
 )
 
-export default Header;
+const mapStateToProps = ({user}) => ({
+    currentUser: user.currentUser,
+});
+
+export default connect(mapStateToProps, null)(Header);
